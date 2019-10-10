@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<!-- 优先使用 IE 最新版本和 Chrome -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+		
+		<title>首页</title>
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	</head>
+	<body>
+		<div class="clearfix nav">
+			<a class="logo" href="javascript:;"></a>
+			<ul class="clearfix nav-wrap">
+				<li><a class="nav-item nav-active" href="index.html">首页</a></li>
+				<li><a class="nav-item" href="meishi.html">美食展示</a></li>
+				<li><a class="nav-item" href="sort.html">美食排行</a></li>
+				<li><a class="nav-item" href="aboutus.html">关于我们</a></li>
+			</ul>
+		</div>
+		
+		<div id="container">
+			<img id="imgs" src="img/banner1.jpg">
+		    <a href="javascript:change();" id="prev" class="arrow"><img src="img/l.png"/></a>
+		    <a href="javascript:change();" id="next" class="arrow"><img src="img/r.png"/></a>
+		</div>
+		
+		<div class="new-wrap">
+			<p class="newfood-tit">新品推荐</p>
+			<div class="newfood-box clearfix" id="newfood-table">
+				<ul class="newfood-wrap clearfix newfood-show">
+					<li class="newfood-item newfood-right newfood-li1">
+						<a href="meishi-con.html?fid=7" class="newfood-p1">茶漱海鲜汤</a>
+					</li>
+					<li class="newfood-item newfood-right newfood-li2">
+						<a href="meishi-con.html?fid=8" class="newfood-p2">玉米海螺沟</a>
+					</li>
+					<li class="newfood-item newfood-right newfood-li3">
+						<a href="meishi-con.html?fid=9" class="newfood-p3">芝士蛋糕卷</a>
+					</li>
+					<li class="newfood-item newfood-li4">
+						<a href="meishi-con.html?fid=10" class="newfood-p4">芝士大虾</a>
+					</li>
+					<li class="newfood-item newfood-right newfood-li5">
+						<a href="meishi-con.html?fid=11" class="newfood-p5">西冷牛排</a>
+					</li>
+					<li class="newfood-item newfood-right newfood-li6">
+						<a href="meishi-con.html?fid=2" class="newfood-p6">草莓布丁杯</a>
+					</li>
+					<li class="newfood-item newfood-right newfood-li7">
+						<a href="meishi-con.html?fid=12" class="newfood-p7">蛋黄小蛋糕</a>
+					</li>
+					<li class="newfood-item newfood-li8">
+						<a href="meishi-con.html?fid=3" class="newfood-p8">黑椒牛排</a>
+					</li>
+				</ul>
+				<ul class="newfood-wrap clearfix">
+					<li class="newfood-item newfood-right newfood-li5">
+						<a href="meishi-con.html?fid=11" class="newfood-p5">西冷牛排</a>
+					</li>
+					<li class="newfood-item newfood-right newfood-li6">
+						<a href="meishi-con.html?fid=2" class="newfood-p6">草莓布丁杯</a>
+					</li>
+					<li class="newfood-item newfood-right newfood-li7">
+						<a href="meishi-con.html?fid=12" class="newfood-p7">蛋黄小蛋糕</a>
+					</li>
+					<li class="newfood-item newfood-li8">
+						<a href="meishi-con.html?fid=3" class="newfood-p8">黑椒牛排</a>
+					</li>
+					<li class="newfood-item newfood-right newfood-li1">
+						<a href="meishi-con.html?fid=7" class="newfood-p1">茶漱海鲜汤</a>
+					</li>
+					<li class="newfood-item newfood-right newfood-li2">
+						<a href="meishi-con.html?fid=8" class="newfood-p2">玉米海螺沟</a>
+					</li>
+					<li class="newfood-item newfood-right newfood-li3">
+						<a href="meishi-con.html?fid=9" class="newfood-p3">芝士蛋糕卷</a>
+					</li>
+					<li class="newfood-item newfood-li4">
+						<a href="meishi-con.html?fid=10" class="newfood-p4">芝士大虾</a>
+					</li>
+				</ul>
+				<ul class="newfood-wrap clearfix">
+					<li class="newfood-item newfood-right newfood-li3">
+						<a href="meishi-con.html?fid=9" class="newfood-p3">芝士蛋糕卷</a>
+					</li>
+					<li class="newfood-item newfood-li4">
+						<a href="meishi-con.html?fid=10" class="newfood-p4">芝士大虾</a>
+					</li>
+					<li class="newfood-item newfood-right newfood-li1">
+						<a href="meishi-con.html?fid=7" class="newfood-p1">茶漱海鲜汤</a>
+					</li>
+					<li class="newfood-item newfood-right newfood-li2">
+						<a href="meishi-con.html?fid=8" class="newfood-p2">玉米海螺沟</a>
+					</li>
+					<li class="newfood-item newfood-right newfood-li7">
+						<a href="meishi-con.html?fid=12" class="newfood-p7">蛋黄小蛋糕</a>
+					</li>
+					<li class="newfood-item newfood-right newfood-li5">
+						<a href="meishi-con.html?fid=11" class="newfood-p5">西冷牛排</a>
+					</li>
+					<li class="newfood-item newfood-right newfood-li6">
+						<a href="meishi-con.html?fid=2" class="newfood-p6">草莓布丁杯</a>
+					</li>
+					<li class="newfood-item newfood-li8">
+						<a href="meishi-con.html?fid=3" class="newfood-p8">黑椒牛排</a>
+					</li>
+				</ul>
+			</div>
+			<div class="clearfix" id="newfood-span">
+				<span style="background: url(img/icon-2.png);"></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+		<div class="company-wrap">
+			<p class="company-tit">餐厅简介</p>
+			<dl class="clearfix company-dl">
+				<dt class="company-dt">
+					<img src="img/pic1.png"/>
+				</dt>
+				<dd class="company-dd">
+					<p>满庭芳一名取自词牌名，展示了许昌学院丰厚的文化底蕴。</p>
+					<p>满庭芳餐厅共三层，一楼主要营业为早餐和晚餐，部分窗口中午会推出午餐。二楼和三楼主打午餐和晚餐，有面条和米饭。快餐米饭选菜是同学们最喜欢的主食之一，主要是方便快捷，排队无需等待就可。三楼和二楼不同之处在于，三楼还有夜宵，在晚上九十点其他窗口关闭之后，三楼还会继续营业。</p>
+					<p>何谓经典，可能就是在品鉴无数美食后，其绝妙的滋味仍旧不能被替代。再次品味时，仍能激起内心的波澜与感动。如此经典，满庭芳将为同学们重新诠释。全新的摆盘，搭配特制爽口的配菜，全熟风味，您不可辜负的舌尖美味。</p>
+					<p>餐厅建成至今，为同学们提供许多美味食物，并严格把关食材问题，坚持使用新鲜食材、坚持剩菜剩饭不过夜的理念为同学们服务。</p>
+					<p>服务人群主要是静庐十栋宿舍楼的同学。</p>
+				</dd>
+			</dl>
+		</div>
+		<div class="foot">
+			<div class="foot-wrap">
+				<p class="foot-tit">橱窗推荐</p>
+				<ul class="foot-link clearfix">
+					<li class="foot-pic">
+						<a href="javascript:;"><img src="img/link6.png"/></a>
+					</li>
+					<li class="foot-pic">
+						<a href="javascript:;"><img src="img/link5.png"/></a>
+					</li>
+					<li class="foot-pic">
+						<a href="javascript:;"><img src="img/link4.png"/></a>
+					</li>
+					<li class="foot-pic">
+						<a href="javascript:;"><img src="img/link3.png"/></a>
+					</li>
+					<li class="foot-pic">
+						<a href="javascript:;"><img src="img/link2.png"/></a>
+					</li>
+					<li class="foot-pic">
+						<a href="javascript:;"><img src="img/link1.png"/></a>
+					</li>
+				</ul>
+				<div class="copyright">
+					<p>CopyRight©2015-2017 www.xc.cn All rigt rederved</p>
+					<p>版权所有：信息工程学院朱新光</p>
+					<p>ICP备案号：京ICP备16047255号-3本站信息由会员自主添加，如信息涉及隐私等，网站不承担任何责任！</p>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+	<!--jq调用-->
+	<script src="js/jquery-1.11.0.js" type="text/javascript"></script>
+
+	<script type="text/javascript">
+		//导航当前项切换	
+		$(".nav-item").click(function(){
+			$(this).parent("li").siblings().children().removeClass("nav-active");		
+			//点击对象的父级（li）的兄弟级（li）的子集（a）移除类
+			$(this).addClass("nav-active");												
+			//给点击对象添加类
+		});
+	   	  //新品推荐table切换
+	    var nSpan = document.getElementById("newfood-span");
+			var newspan = nSpan.querySelectorAll("span");
+			var oUl  = document.getElementById("newfood-table");
+			var uls = oUl.querySelectorAll("ul");
+			var last=newspan[0];
+			for(var i=0;i<newspan.length;i++){
+					newspan[i].index=i;  //给每一个按钮添加一个自定义属性，存储的是他们对应的索引值；
+					newspan[i].onclick=function(){
+						last.style.background="url(img/icon.png)";  //把上一次点击对象的背景更换掉
+						uls[last.index].style.display="none"; //上一个对应的div，让他隐藏
+						this.style.background="url(img/icon-2.png)"; //给当前点击的按钮添加背景
+						uls[this.index].style.display="block"; //当前点击按钮对应的div显示			
+						last=this; 	//把上一次点击的对象更新成当前点击的对象
+					};
+				};
+
+		var number = 2;
+		function change(){
+			//获取img对象
+	            var img = document.getElementById("imgs");
+	            img.src = "img/banner"+number+".jpg";
+				//判断number是否大于2
+				number ++ ;   
+				 if(number > 2){
+	                number = 1;
+	            }
+		};
+		//定义定时器
+	    setInterval(change,5000);
+
+	</script>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>关于我们</title>
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	</head>
+	<body>
+		<div class="clearfix nav">
+			<a class="logo" href="javascript:;"></a>
+			<ul class="clearfix nav-wrap">
+				<li><a class="nav-item" href="index.html">首页</a></li>
+				<li><a class="nav-item" href="meishi.html">美食展示</a></li>
+				<li><a class="nav-item" href="sort.html">美食排行</a></li>
+				<li><a class="nav-item nav-active" href="aboutus.html">关于我们</a></li>
+			</ul>
+		</div>
+		<hr color="#533336" size="10"></hr>
+
+		<div class="shop-conwrap">
+			<h1 class="shop-contit">信息工程学院</h1>
+			<span class="shop-conpic">
+				<img src="img/shop-pic7.jpg"/>
+			</span>
+			<p class="shop-font14"><span class="shop-font18">专业：</span>数字媒体技术（游戏开发）</p>
+			<p class="shop-font14"><span class="shop-font18">年级：</span>2015级</p>
+			<p class="shop-font14"><span class="shop-font18">学生姓名：</span>朱新光</p>
+			<p class="shop-font14"><span class="shop-font18">作品名称：</span>满庭芳美食推荐</p>
+			<p class="shop-font14"><span class="shop-font18">任课老师：</span>在罗俊丽老师的带领下，成功完成本学期期末作品</p>
+			
+			<a href="index.html" class="shop-icon">返回首页</a>
+		</div>
+
+		<div class="foot">
+			<div class="foot-wrap">
+				<p class="foot-tit">橱窗推荐</p>
+				<ul class="foot-link clearfix">
+					<li class="foot-pic">
+						<a href="javascript:;"><img src="img/link6.png"/></a>
+					</li>
+					<li class="foot-pic">
+						<a href="javascript:;"><img src="img/link5.png"/></a>
+					</li>
+					<li class="foot-pic">
+						<a href="javascript:;"><img src="img/link4.png"/></a>
+					</li>
+					<li class="foot-pic">
+						<a href="javascript:;"><img src="img/link3.png"/></a>
+					</li>
+					<li class="foot-pic">
+						<a href="javascript:;"><img src="img/link2.png"/></a>
+					</li>
+					<li class="foot-pic">
+						<a href="javascript:;"><img src="img/link1.png"/></a>
+					</li>
+				</ul>
+				<div class="copyright">
+					<p>CopyRight©2015-2017 www.xc.cn All rigt rederved</p>
+					<p>版权所有：信息工程学院朱新光</p>
+					<p>ICP备案号：京ICP备16047255号-3本站信息由会员自主添加，如信息涉及隐私等，网站不承担任何责任！</p>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+	<!--jq调用-->
+	<script src="js/jquery-1.11.0.js" type="text/javascript"></script>
+
+	<script type="text/javascript">
+		//导航当前项切换	
+		$(".nav-item").click(function(){
+			$(this).parent("li").siblings().children().removeClass("nav-active");		
+			//点击对象的父级（li）的兄弟级（li）的子集（a）移除类
+			$(this).addClass("nav-active");												
+			//给点击对象添加类
+		});
+	</script>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>美食排行</title>
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	</head>
+	<body>
+		<div class="clearfix nav">
+			<a class="logo" href="javascript:;"></a>
+			<ul class="clearfix nav-wrap">
+				<li><a class="nav-item" href="index.html">首页</a></li>
+				<li><a class="nav-item" href="meishi.html">美食展示</a></li>
+				<li><a class="nav-item nav-active" href="sort.html">美食排行</a></li>
+				<li><a class="nav-item" href="aboutus.html">关于我们</a></li>
+			</ul>
+		</div>
+		<hr color="#533336" size="10"></hr>
+
+		<div class="contant">
+			<div class="list clearfix">
+                <ul id="ul">
+                    <li>
+                        <span class="num one">1</span>
+                        <a href="meishi-con.html"><img src="img/ms-pic1.jpg" alt=""></a>
+                        <p>
+                            <b class="price">&yen;<span>899</span>起</b>
+                            <span class="shouchang">已点赞450次</span>
+                        </p> 
+                    </li>
+                    <li>
+                        <span class="num two">2</span>
+                        <a href="meishi-con.html"><img src="img/ms-pic1.jpg" alt=""></a>
+                        <p>
+                            <b class="price">&yen;<span>899</span>起</b>
+                            <span class="shouchang">已点赞450次</span>
+                        </p> 
+                    </li>
+                    <li>
+                        <span class="num">3</span>
+                        <a href="meishi-con.html"><img src="img/ms-pic1.jpg" alt=""></a>
+                        <p>
+                            <b class="price">&yen;<span>899</span>起</b>
+                            <span class="shouchang">已点赞450次</span>
+                        </p> 
+                    </li>
+                    <li>
+                        <span class="num">4</span>
+                        <a href="meishi-con.html"><img src="img/ms-pic1.jpg" alt=""></a>
+                        <p>
+                            <b class="price">&yen;<span>899</span>起</b>
+                            <span class="shouchang">已点赞450次</span>
+                        </p> 
+                    </li>
+                    <li>
+                        <span class="num">5</span>
+                        <a href="meishi-con.html"><img src="img/ms-pic1.jpg" alt=""></a>
+                        <p>
+                            <b class="price">&yen;<span>899</span>起</b>
+                            <span class="shouchang">已点赞450次</span>
+                        </p> 
+                    </li>
+                    <li>
+                        <span class="num">6</span>
+                        <a href="meishi-con.html"><img src="img/ms-pic1.jpg" alt=""></a>
+                        <p>
+                            <b class="price">&yen;<span>899</span>起</b>
+                            <span class="shouchang">已点赞450次</span>
+                        </p> 
+                    </li>
+                </ul>
+            </div>
+            <hr color="#533336" size="2"></hr>
+            <ul class="shop-paging clearfix" id="pages">
+				<li><a href="javascript:;" class="pag-item">&lt;</a></li>
+				<li><a href="javascript:;" class="pag-item pag-active">1</a></li>
+				<li><a href="javascript:;" class="pag-item">2</a></li>
+				<li><a href="javascript:;" class="pag-item">3</a></li>
+				<li><a href="javascript:;" class="pag-item">4</a></li>
+				<li><a href="javascript:;" class="pag-item">&gt;</a></li>
+			</ul>
+        </div>
+        
+		<div class="foot">
+			<div class="foot-wrap">
+				<p class="foot-tit">橱窗推荐</p>
+				<ul class="foot-link clearfix">
+					<li class="foot-pic">
+						<a href="javascript:;"><img src="img/link6.png"/></a>
+					</li>
+					<li class="foot-pic">
+						<a href="javascript:;"><img src="img/link5.png"/></a>
+					</li>
+					<li class="foot-pic">
+						<a href="javascript:;"><img src="img/link4.png"/></a>
+					</li>
+					<li class="foot-pic">
+						<a href="javascript:;"><img src="img/link3.png"/></a>
+					</li>
+					<li class="foot-pic">
+						<a href="javascript:;"><img src="img/link2.png"/></a>
+					</li>
+					<li class="foot-pic">
+						<a href="javascript:;"><img src="img/link1.png"/></a>
+					</li>
+				</ul>
+				<div class="copyright">
+					<p>CopyRight©2015-2017 www.xc.cn All rigt rederved</p>
+					<p>版权所有：信息工程学院朱新光</p>
+					<p>ICP备案号：京ICP备16047255号-3本站信息由会员自主添加，如信息涉及隐私等，网站不承担任何责任！</p>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+	<!--jq调用-->
+	<script src="js/jquery-1.11.0.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		//导航当前项切换	
+		$(".nav-item").click(function(){
+			$(this).parent("li").siblings().children().removeClass("nav-active");		
+			//点击对象的父级（li）的兄弟级（li）的子集（a）移除类
+			$(this).addClass("nav-active");												
+			//给点击对象添加类
+		});
+	</script>
+
+	<script type="text/javascript">
+		$(function () {
+            load(null);
+        })
+
+        //加载方法
+        function load(currentPage) {
+            $.get("/xcfood/loveFoodServlet", {currentPage:currentPage}, function (pb) {
+                //解析PageBean数据，展示到页面
+                //写入真实页码
+                var pli = "";
+                //计算上一页页码数
+                var beforeNum = pb.currentPage-1;
+                if (beforeNum <= 0) {
+                    beforeNum=1;
+                }
+                var beforePage = '<li><a href="javascript:load('+beforeNum+');" class="pag-item">&lt;</a></li>';
+
+                pli+=beforePage;
+
+                //展示分页页码
+                //前1后2模式
+                // 定义开始位置begin,结束位置 end
+                var begin;  //开始位置
+                var end;    //结束位置
+
+                //显示4个页面
+                if (pb.totalPage<4){
+                    //当总页码数不够4页
+                    begin=1;
+                    end=pb.totalPage;
+                }else{
+                    //总页码数超过4页
+                    begin=pb.currentPage-1;
+                    end=pb.currentPage+2;
+
+                    //如果前边不够1个，后边补齐3个
+                    if (begin < 1) {
+                        begin=1;
+                        end=begin+3;
+                    }
+
+                    //如果后边不足2个，前边补齐3个
+                    if (end > pb.totalPage) {
+                        end=pb.totalPage;
+                        begin=end-3;
+                    }
+                }
+                //循环显示页数
+                for (var i = begin; i <= end; i++) {
+                    var page;
+                    //判断传进来的currentPage是否是当前i的页面
+                    if (pb.currentPage==i){
+                        //如果是，将页码数写入，并带有样式
+                        var page = '<li><a href="javascript:load('+i+');" class="pag-item pag-active">' + i + '</a></li>';
+                    } else{
+                        //如果不是，将页码数写入，不带有样式
+                        var page = '<li><a href="javascript:load('+i+');" class="pag-item">' + i + '</a></li>';
+                    }
+
+                    //拼接字符串
+                    pli += page;
+                }
+
+                //把下一页和末页写入字符串
+                //计算下一页码数
+                var nextNum = pb.currentPage+1;
+                if (nextNum > pb.totalPage) {
+                    nextNum=pb.totalPage;
+                }
+                var nextPage = '<li><a href="javascript:load('+nextNum+');" class="pag-item">&gt;</a></li>';
+
+                pli+=nextPage;
+
+                //将页码内容设置到ul里
+                $("#pages").html(pli);
+
+                //写入真实数据
+                var fli ="";
+
+                for (var i = 0; i < pb.list.length; i++) {
+                    var favorite = pb.list[i];
+
+                    //计算前面排行榜的数字
+                    var Num = pb.currentPage*6-(5-i);
+                    var li ='';
+
+                    if (Num == 1) {
+                        li = '<li>\n' +
+                            '                    <span class="num one">'+Num+'</span>\n' +
+                            '                        <a href="meishi-con.html?fid='+favorite.fid+'"><img src="'+favorite.fimage+'" alt=""></a>\n' +
+                            '                        <p>\n' +
+                            '                        <b class="price">&yen;<span>'+favorite.price+'</span>元</b>\n' +
+                            '                    <span class="shouchang">已点赞'+favorite.count+'次</span>\n' +
+                            '                        </p>\n' +
+                            '                        </li>';
+					}else if (Num == 2) {
+                        li = '<li>\n' +
+                            '                    <span class="num two">'+Num+'</span>\n' +
+                            '                        <a href="meishi-con.html?fid='+favorite.fid+'"><img src="'+favorite.fimage+'" alt=""></a>\n' +
+                            '                        <p>\n' +
+                            '                        <b class="price">&yen;<span>'+favorite.price+'</span>元</b>\n' +
+                            '                    <span class="shouchang">已点赞'+favorite.count+'次</span>\n' +
+                            '                        </p>\n' +
+                            '                        </li>';
+					}else {
+                        li = '<li>\n' +
+                            '                    <span class="num">'+Num+'</span>\n' +
+                            '                        <a href="meishi-con.html?fid='+favorite.fid+'"><img src="'+favorite.fimage+'" alt=""></a>\n' +
+                            '                        <p>\n' +
+                            '                        <b class="price">&yen;<span>'+favorite.price+'</span>元</b>\n' +
+                            '                    <span class="shouchang">已点赞'+favorite.count+'次</span>\n' +
+                            '                        </p>\n' +
+                            '                        </li>';
+					}
+
+                    fli+=li;
+                }
+                $("#ul").html(fli);
+
+            });
+        }
+	</script>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>美食简介</title>
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	</head>
+	<body>
+		<div class="clearfix nav">
+			<a class="logo" href="javascript:;"></a>
+			<ul class="clearfix nav-wrap">
+				<li><a class="nav-item" href="index.html">首页</a></li>
+				<li><a class="nav-item nav-active" href="meishi.html">美食展示</a></li>
+				<li><a class="nav-item" href="sort.html">美食排行</a></li>
+				<li><a class="nav-item" href="aboutus.html">关于我们</a></li>
+			</ul>
+		</div>
+		<hr color="#533336" size="10"></hr>
+
+		<div class="mei-wrap" id="des">
+			<p class="mei-tit">菲力黑椒牛排</p>
+			<div class="mei-pic">
+				<img src="img/meishi-pic1.jpg"/>
+			</div>
+			<div class="mei-txt">
+				<p>菲力牛排，就是用一定厚度的牛里脊肉做出的牛排。菲力指的是牛里脊肉（beef tenderloin）。在澳洲，这块肉被称为“眼菲力”，在法国和英国被称为filet和fillet，中文音译菲力。</p>
+				<p>很多人认为牛排最早是西方人的美食，在欧洲中世纪的时候就开始出现了，牛排只有贵族才可以吃到的美食，而猪肉和羊肉只有平常百姓才可以吃到的，牛肉是贵族的象征，想要吃到牛排除非得到国王的赏识或者立下过过劳的战士才有机会吃到的。</p>
+				<p>尊贵的牛肉被他们搭配上了当时也是享有尊贵身份的胡椒及香辛料一起烹调，并在特殊场合中供应，以彰显主人的尊贵身份。到了18世纪，英国已经成了著名的牛肉食用大国。</p>
+			</div>
+			<div class="pros_price">
+				<p class="price"><strong id="price">¥2699.00</strong></p>
+				<p class="collect">
+					<a class="btn" id="favorite" onclick="addCollection();"><i class="glyphicon glyphicon-heart-empty"></i>点击点赞</a>
+				</p>
+			</div>
+			<a href="javascript:history.back(-1)" class="meishi-icon">返回列表</a>
+		</div>
+
+		<div class="foot">
+			<div class="foot-wrap">
+				<p class="foot-tit">橱窗推荐</p>
+				<ul class="foot-link clearfix">
+					<li class="foot-pic">
+						<a href="javascript:;"><img src="img/link6.png"/></a>
+					</li>
+					<li class="foot-pic">
+						<a href="javascript:;"><img src="img/link5.png"/></a>
+					</li>
+					<li class="foot-pic">
+						<a href="javascript:;"><img src="img/link4.png"/></a>
+					</li>
+					<li class="foot-pic">
+						<a href="javascript:;"><img src="img/link3.png"/></a>
+					</li>
+					<li class="foot-pic">
+						<a href="javascript:;"><img src="img/link2.png"/></a>
+					</li>
+					<li class="foot-pic">
+						<a href="javascript:;"><img src="img/link1.png"/></a>
+					</li>
+				</ul>
+				<div class="copyright">
+					<p>CopyRight©2015-2017 www.xc.cn All rigt rederved</p>
+					<p>版权所有：信息工程学院朱新光</p>
+					<p>ICP备案号：京ICP备16047255号-3本站信息由会员自主添加，如信息涉及隐私等，网站不承担任何责任！</p>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+	<!--jq调用-->
+	<script src="js/jquery-1.11.0.js" type="text/javascript"></script>
+
+	<script type="text/javascript">
+		//导航当前项切换	
+		$(".nav-item").click(function(){
+			$(this).parent("li").siblings().children().removeClass("nav-active");		
+			//点击对象的父级（li）的兄弟级（li）的子集（a）移除类
+			$(this).addClass("nav-active");												
+			//给点击对象添加类
+		});
+
+	</script>
+
+	<script type="text/javascript">
+        $(function () {
+            //获取fid的值
+            //locaton代表当前浏览的url，search属性可以拿到？以后的参数
+            var search = location.search;
+            //若search为''说明后面没有参数
+            if (search != '') {
+                //获取第一个=后的值
+                var fid = search.split("=")[1];  //fid的值
+
+                load(fid);
+            }
+        });
+
+        //点击点赞按钮触发的方法
+        function addCollection(fid){
+            if ($("#favorite").attr("class") == "btn") {
+                $("#favorite").addClass("already");
+                $("#favorite").text("已点赞");
+                $.post("/xcfood/addCountServlet", {fid: fid});
+            }
+        }
+
+        function load(fid) {
+            $.post("/xcfood/desFoodServlet", {fid: fid}, function (data) {
+				var des ='<p class="mei-tit">'+data.food.fname+'</p>\n' +
+                    '<div class="mei-pic">\n' +
+                    '<img src="'+data.dimage+'"/>\n' +
+                    '</div>\n' +
+                    '<div class="mei-txt">\n' +
+                    '<p>'+data.des+'</p>\n' +
+                    '</div>\n' +
+                    '<div class="pros_price">\n' +
+                    '<p class="price"><strong id="price">¥'+data.food.price+'</strong></p>\n' +
+                    '<p class="collect">\n' +
+                    '<a class="btn" id="favorite" onclick="addCollection('+data.fid+');"><i class="glyphicon glyphicon-heart-empty"></i>点击点赞</a>\n' +
+                    '</p>\n' +
+                    '</div>\n' +
+                    '<a href="javascript:history.back(-1)" class="meishi-icon">返回列表</a>';
+
+				$("#des").html(des);
+			});
+
+		}
+	</script>
+</html>
